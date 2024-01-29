@@ -31,11 +31,28 @@ public class PalindromeChecker {
   }
   public boolean palindrome(String word){
     //your code here
+    String modword=word.toLowerCase();
+    String modword2=new String();
+    for(int i=0;i<word.length();i++){
+      if(word.substring(i,i+1).equals(" "))
+        modword+="";
+      else
+        modword+=word.substring(i,i+1);
+    }
+    for(int i=0;i<modword.length();i++){
+      if(Character.isLetter(modword.charAt(i)))
+        modword2+=modword.substring(i,i+1).toLowerCase();
+    }
+    String newstr=reverse(modword2);
+    if(modword2.equals(newstr))
+      return true;
     return false;
   }
   public String reverse(String str){
       String sNew = new String();
       //your code here
+      for(int i=str.length();i>0;i--)
+        sNew+=str.substring(i-1,i);
       return sNew;
   }
 }
